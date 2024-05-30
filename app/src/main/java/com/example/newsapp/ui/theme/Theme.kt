@@ -47,6 +47,7 @@ fun NewsAppTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
+    // this the method
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
@@ -55,7 +56,7 @@ fun NewsAppTheme(
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
-
+   // the end of the method
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
