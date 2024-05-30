@@ -32,10 +32,12 @@ fun OnBoardingScreen(modifier: Modifier = Modifier) {
 
     Column(modifier = modifier.fillMaxSize()) {
         val pagerState = rememberPagerState(initialPage = 0) {
+            // size mean the page number
             pages.size
         }
 
         val buttonState = remember {
+            // derived means the value will be calculated by another state
             derivedStateOf {
                 when (pagerState.currentPage) {
                     0 -> listOf("", "Next")
@@ -46,9 +48,11 @@ fun OnBoardingScreen(modifier: Modifier = Modifier) {
             }
         }
 
+        // scroll to the next page
         HorizontalPager(state = pagerState) { index ->
             OnBoardingPage(page = pages[index])
         }
+
         Spacer(modifier = Modifier.weight(1f))
         Row(
             modifier = Modifier
@@ -68,7 +72,7 @@ fun OnBoardingScreen(modifier: Modifier = Modifier) {
             Row(verticalAlignment = Alignment.CenterVertically) {
 
                 val scope = rememberCoroutineScope()
-
+                    //Back btn
                 if (buttonState.value[0].isNotEmpty()) {
                     NewsTextButton(text = buttonState.value[0],
                         onclick = {
@@ -78,8 +82,12 @@ fun OnBoardingScreen(modifier: Modifier = Modifier) {
                         }
                     )
                 }
+
+
+                // next btn
                 NewsButton(text = buttonState.value[1], onclick = {
                     scope.launch {
+                        // the last screen = 2
                         if (pagerState.currentPage == 3) {
                             //TODO : Navigate to home screen
                         } else {
