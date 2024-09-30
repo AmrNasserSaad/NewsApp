@@ -41,15 +41,15 @@ class MainActivity : ComponentActivity() {
         setContent {
             NewsAppTheme(dynamicColor = false) {
 
-                changeSystemUiColor()
+                ChangeSystemUiColor()
 
-                navigation()
+                Navigation()
             }
         }
     }
 
     @Composable
-    private fun navigation() {
+    private fun Navigation() {
         Box(
             modifier = Modifier.background(color = MaterialTheme.colorScheme.background)
         ) {
@@ -59,7 +59,7 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun changeSystemUiColor() {
+    private fun ChangeSystemUiColor() {
         val isSystemInDarkTheme = isSystemInDarkTheme()
         val systemController = rememberSystemUiController()
 
